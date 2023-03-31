@@ -253,15 +253,18 @@ ul {
   margin-top: 1rem;
 }
 /* ============= PROJECT CSS =============== */
+
 .section-center {
-  width: 80vw;
+  width: 80vm;
   max-width: 40rem;
   margin: 10rem auto;
 }
+
 .section-center h4 {
   text-transform: uppercase;
   text-align: center;
 }
+
 .lorem-form {
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
@@ -272,6 +275,7 @@ ul {
   align-items: center;
   gap: 0.5rem;
 }
+
 .lorem-form label {
   font-size: 1.25rem;
 }
