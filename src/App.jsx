@@ -1,37 +1,42 @@
+import { nanoid } from "nanoid";
 import { useState } from "react";
-import text from "./data";
+import textData from "./data";
 
 function App() {
   const [count, setCount] = useState(1);
-  const [texts, setTexts] = useState([]);
+  const [text, setText] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newText = text.slice(0, count);
-
-    setTexts(() => {
-      return newText;
-    });
+    setText(textData.slice(0, parseInt(count)));
   };
 
   return (
-    <div>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="count">count</label>
+    <section className="section-center">
+      <h4>lorem ipsum to your rescue</h4>
+      <form className="lorem-form" onSubmit={handleSubmit}>
+        <label htmlFor="amount">paragraphs:</label>
         <input
           type="number"
-          id="count"
-          step={1}
-          min={1}
-          max={8}
+          name="amount"
+          id="amount"
+          step="1"
+          min="1"
+          max="8"
           value={count}
           onChange={(e) => setCount(e.target.value)}
         />
-        <button type="submit">submit</button>
+        <button className="btn" type="submit">
+          generate
+        </button>
       </form>
-      <div>{}</div>
-    </div>
+      <article className="lorem-text">
+        {text.map((text) => {
+          return <p key={nanoid()}>{text}</p>;
+        })}
+      </article>
+    </section>
   );
 }
 
